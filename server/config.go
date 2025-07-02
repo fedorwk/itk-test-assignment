@@ -21,12 +21,12 @@ func Config() ServerConfig {
 		port := os.Getenv("WALLET_SERVER_PORT")
 		if port == "" {
 			log.Printf("WALLET_SERVER_PORT env variable not specified, defaulting to %s", defaultPort)
-			port = "8080"
+			port = defaultPort
 		}
 		_, err := strconv.Atoi(port)
 		if err != nil {
 			log.Printf("failed to parse port: %s, defaulting to %s", port, defaultPort)
-			port = "8080"
+			port = defaultPort
 		}
 		conf = ServerConfig{
 			Port: port,
